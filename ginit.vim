@@ -3,6 +3,12 @@ inoremap <silent> <S-Insert>  <C-R>+
 cnoremap <S-Insert> <C-R>+
 nnoremap <silent> <C-6> <C-^>
 
+" config for Neovide "
+if exists('g:neovide')
+  let g:neovide_refresh_rate=120
+  let g:neovide_transparency=1.0
+  let g:neovide_remember_window_size=v:true
+  let g:neovide_cursor_vfx_mode="railgun"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          config for nvim-qt                          "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

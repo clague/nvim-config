@@ -17,11 +17,10 @@ if !has(s:expect_ver)
   finish
 endif
 
+lua require('init')
+
 let s:core_conf_files = [
-      \ 'globals.vim',
-      \ 'options.vim',
       \ 'autocommands.vim',
-      \ 'mappings.vim',
       \ 'plugins.vim',
       \ 'themes.vim'
       \ ]

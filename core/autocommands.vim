@@ -135,3 +135,13 @@ augroup auto_create_dir
   autocmd!
   autocmd BufWritePre * lua require('utils').may_create_dir()
 augroup END
+
+augroup restore_after_yank
+  autocmd!
+  autocmd TextYankPost *  call s:restore_cursor()
+augroup END
+
+function! s:restore_cursor() abort
+  silent! normal `y
+  silent! delmarks y
+endfunction
