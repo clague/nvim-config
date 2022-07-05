@@ -19,12 +19,6 @@ endif
 
 lua require('init')
 
-let s:core_conf_files = [
-      \ 'autocommands.vim',
-      \ 'plugins.vim',
-      \ 'themes.vim'
-      \ ]
-
-for s:fname in s:core_conf_files
-  execute printf('source %s/core/%s', stdpath('config'), s:fname)
-endfor
+source <sfile>:p:h/core/plugins.vim
+source <sfile>:p:h/core/themes.vim
+source <sfile>:p:h/core/autocommands.vim

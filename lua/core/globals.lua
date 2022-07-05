@@ -24,7 +24,7 @@ then
 end
 
 -- Custom mapping <leader> (see `:h mapleader` for more info)
-g.mapleader = ','
+g.mapleader = ' '
 
 -- Enable lua highlighting inside vim script
 g.vimsyn_embed = 'l'

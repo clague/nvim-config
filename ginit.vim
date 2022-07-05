@@ -5,10 +5,12 @@ nnoremap <silent> <C-6> <C-^>
 
 " config for Neovide "
 if exists('g:neovide')
+  set guifont=monospace:h13:m
   let g:neovide_refresh_rate=120
   let g:neovide_transparency=1.0
   let g:neovide_remember_window_size=v:true
   let g:neovide_cursor_vfx_mode="railgun"
+endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          config for nvim-qt                          "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -19,7 +21,7 @@ if exists('g:GuiLoaded')
   GuiTabline 0
   GuiPopupmenu 0
   GuiLinespace 2
-  GuiFont! Hack\ NF:h10:l
+  GuiFont! monospace:h13:l
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -28,7 +30,7 @@ endif
 if exists('g:fvim_loaded')
   set termguicolors
   colorscheme gruvbox8_hard
-  set guifont=Hack\ NF:h13
+  set guifont=monospace:h13:m
   " Cursor tweaks
   FVimCursorSmoothMove v:true
   FVimCursorSmoothBlink v:true

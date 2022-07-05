@@ -11,7 +11,6 @@ nvim_tree.setup({
   open_on_setup_file = false,
   open_on_tab = false,
   sort_by = "name",
-  update_cwd = false,
   view = {
     width = 30,
     height = 30,
@@ -46,8 +45,8 @@ nvim_tree.setup({
     auto_open = true,
   },
   update_focused_file = {
-    enable = false,
-    update_cwd = false,
+    enable = true,
+    update_cwd = true,
     ignore_list = {},
   },
   ignore_ft_on_setup = {},
@@ -113,7 +112,3 @@ nvim_tree.setup({
   },
 })
 
-vim.keymap.set('n', '<space>s', function()
-  return require('nvim-tree').toggle(false, true)
-end,
-{ noremap = true, silent = true, desc = "toggle nvim-tree"})

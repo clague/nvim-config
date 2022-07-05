@@ -80,7 +80,7 @@ opt.wildmode="list:longest"
 opt.scrolloff=3
 
 -- Use mouse to select and resize windows, etc.
-opt.mouse='nic'  -- Enable mouse in several mode
+opt.mouse='a'  -- Enable mouse in several mode
 opt.mousemodel='popup'  -- Set the behaviour of mouse
 
 -- Disable showing current mode on command line since statusline plugins can show it.

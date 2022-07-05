@@ -3,9 +3,10 @@
 -- used by vim-sneak
 local map = vim.keymap.set
 
--- i need ; to repeat
--- nnoremap ; :
--- xnoremap ; :
+map('n', '<leader>a', ':<C-U>NvimTreeToggle<CR>', {silent=true})
+
+map({'x', 'n'}, ';', ':')
+map({'x', 'n'}, ':', ';')
 
 -- Quicker way to open command window
 map('n', 'q;', 'q:')
@@ -48,11 +49,11 @@ map('n', [[\q]], ':<C-U>bprevious <bar> bdelete #<CR>', {silent=true})
 
 -- Insert a blank line below or above current line (do not move the cursor),
 -- see https://stackoverflow.com/a/16136133/6064933
-map('n', '<Space>o', function ()
+map('n', '<leader>o', function ()
   return string.format('m`%so<ESC>``', vim.v.count1)
 end, {expr=true})
 
-map('n', '<Space>O', function ()
+map('n', '<leader>O', function ()
   return string.format('m`%sO<ESC>``', vim.v.count1)
 end, {expr=true})
 
@@ -127,7 +128,7 @@ map('n', 'cc', '"_cc')
 map('x', 'c', '"_c')
 
 -- Remove trailing whitespace characters
-map('n', '<leader><Space>', ':<C-U>StripTrailingWhitespace<CR>')
+map('n', '<leader>d<Space>', ':<C-U>StripTrailingWhitespace<CR>')
 
 -- check the syntax group of current cursor position
 map('n', '<leader>st', ':<C-U>call utils#SynGroup()<CR>')

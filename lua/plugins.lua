@@ -35,18 +35,14 @@ require("packer").startup({
     use {"hrsh7th/cmp-buffer", after = "nvim-cmp"}
     use { "hrsh7th/cmp-omni", after = "nvim-cmp" }
 
-    -- use {"hrsh7th/cmp-cmdline", after = "nvim-cmp"}
+    use {"hrsh7th/cmp-cmdline", after = "nvim-cmp"}
     use {"quangnguyen30192/cmp-nvim-ultisnips", after = {'nvim-cmp', 'ultisnips'}}
-    if vim.g.is_mac then
-      use {"hrsh7th/cmp-emoji", after = 'nvim-cmp'}
-    end
+    use {"hrsh7th/cmp-emoji", after = 'nvim-cmp'}
 
     -- nvim-lsp configuration (it relies on cmp-nvim-lsp, so it should be loaded after cmp-nvim-lsp).
     use({ "neovim/nvim-lspconfig", after = "cmp-nvim-lsp", config = [[require('config.lsp')]] })
 
-    if vim.g.is_mac then
-      use({ "nvim-treesitter/nvim-treesitter", event = 'BufEnter', run = ":TSUpdate", config = [[require('config.treesitter')]] })
-    end
+    use({ "nvim-treesitter/nvim-treesitter", event = 'BufEnter', run = ":TSUpdate", config = [[require('config.treesitter')]] })
 
     -- Python indent (follows the PEP8 style)
     use({ "Vimjas/vim-python-pep8-indent", ft = { "python" } })
@@ -156,12 +152,8 @@ require("packer").startup({
       end
     })
 
-    -- For Windows and Mac, we can open an URL in the browser. For Linux, it may
-    -- not be possible since we maybe in a server which disables GUI.
-    if vim.g.is_win or vim.g.is_mac then
-      -- open URL in browser
-      use({"tyru/open-browser.vim", event = "VimEnter"})
-    end
+    -- open URL in browser
+    use({"tyru/open-browser.vim", event = "VimEnter"})
 
     -- Only install these plugins if ctags are installed on the system
     if utils.executable("ctags") then
@@ -180,7 +172,7 @@ require("packer").startup({
     use({"tpope/vim-commentary", event = "VimEnter"})
 
     -- Multiple cursor plugin like Sublime Text?
-    -- use 'mg979/vim-visual-multi'
+    use 'mg979/vim-visual-multi'
 
     -- Autosave files on certain events
     use({
@@ -248,21 +240,17 @@ require("packer").startup({
     use({ "elzr/vim-json", ft = { "json", "markdown" } })
 
     -- Markdown previewing (only for Mac and Windows)
-    if vim.g.is_win or vim.g.is_mac then
-      use({
-        "iamcco/markdown-preview.nvim",
-        run = function()
-          fn["mkdp#util#install"]()
-        end,
-        ft = { "markdown" },
-      })
-    end
+    use({
+    "iamcco/markdown-preview.nvim",
+    run = function()
+        fn["mkdp#util#install"]()
+    end,
+    ft = { "markdown" },
+    })
 
     use({'folke/zen-mode.nvim', cmd = 'ZenMode', config = [[require('config.zen-mode')]]})
 
-    if vim.g.is_mac then
-      use({ "rhysd/vim-grammarous", ft = { "markdown" } })
-    end
+    use({ "rhysd/vim-grammarous", ft = { "markdown" } })
 
     use({"chrisbra/unicode.vim", event = "VimEnter"})
 
@@ -277,13 +265,10 @@ require("packer").startup({
     -- Add indent object for vim (useful for languages like Python)
     use({"michaeljsmith/vim-indent-object", event = "VimEnter"})
 
-    -- Only use these plugin on Windows and Mac and when LaTeX is installed
-    if vim.g.is_win or vim.g.is_mac and utils.executable("latex") then
-      use({ "lervag/vimtex", ft = { "tex" } })
+    use({ "lervag/vimtex", ft = { "tex" } })
 
-      -- use {'matze/vim-tex-fold', ft = {'tex', }}
-      -- use 'Konfekt/FastFold'
-    end
+    use {'matze/vim-tex-fold', ft = {'tex', }}
+    -- use 'Konfekt/FastFold'
 
     -- Since tmux is only available on Linux and Mac, we only enable these plugins
     -- for Linux and Mac
@@ -315,14 +300,12 @@ require("packer").startup({
     use({ "cespare/vim-toml", ft = { "toml" }, branch = "main" })
 
     -- Edit text area in browser using nvim
-    if vim.g.is_win or vim.g.is_mac then
-      use({
+    use({
         "glacambre/firenvim",
         run = function() fn["firenvim#install"](0) end,
         opt = true,
         setup = [[vim.cmd('packadd firenvim')]],
-      })
-    end
+    })
 
     -- Debugger plugin
     if vim.g.is_win or vim.g.is_linux then
@@ -341,10 +324,10 @@ require("packer").startup({
 
     -- showing keybindings
     use {"folke/which-key.nvim",
-    event = "VimEnter",
-    config = function()
-      vim.defer_fn(function() require('config.which-key') end, 2000)
-    end
+        event = "VimEnter",
+        config = function()
+        vim.defer_fn(function() require('config.which-key') end, 2000)
+        end
     }
 
     -- show and trim trailing whitespaces
